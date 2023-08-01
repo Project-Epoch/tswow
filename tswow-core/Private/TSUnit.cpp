@@ -2659,3 +2659,40 @@ int32 TSUnit::SpellBaseDamageBonusDone(uint32 schoolMask)
 {
     return unit->SpellBaseDamageBonusDone(static_cast<SpellSchoolMask>(schoolMask));
 }
+
+/** @epoch-start */
+bool TSUnit::IsWithinMeleeRange(TSUnit target)
+{
+    return unit->IsWithinMeleeRange(target);
+}
+
+bool TSUnit::IsTotem()
+{
+    return unit->IsTotem();
+}
+
+bool TSUnit::IsPet()
+{
+    return unit->IsPet();
+}
+
+bool TSUnit::IsHunterPet()
+{
+    return unit->IsHunterPet();
+}
+
+void TSUnit::StopMoving()
+{
+    unit->StopMoving();
+}
+
+void TSUnit::InterruptNonMeleeSpells(bool withDelayed, uint32 spell_id, bool withInstant)
+{
+    unit->InterruptNonMeleeSpells(withDelayed, spell_id, withInstant);
+}
+
+bool TSUnit::IsNonMeleeSpellCast(bool withDelayed, bool skipChanneled, bool skipAutorepeat, bool isAutoshoot, bool skipInstant)
+{
+    return unit->IsNonMeleeSpellCast(withDelayed, skipChanneled, skipAutorepeat, isAutoshoot, skipInstant);
+}
+/** @epoch-end */

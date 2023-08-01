@@ -1435,3 +1435,20 @@ TSNumber<float> TSCreature::GetThreat(TSUnit target, bool includeOffline)
     return creature->GetThreatManager().GetThreat(target, includeOffline);
 }
 
+/** @epoch-start */
+bool TSCreature::IsMoving()
+{
+    return creature->isMoving();
+}
+
+void TSCreature::SetCombatMovement(bool allow)
+{
+    if (!creature->IsAIEnabled()) return;
+
+    auto ai = creature->AI();
+    if (SmartAI * sai = dynamic_cast<SmartAI*>(ai))
+    {
+        sai->SetCombatMove(allow);
+    }
+}
+/** @epoch-end */

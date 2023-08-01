@@ -3307,6 +3307,11 @@ declare interface TSCreature extends TSUnit {
      * Updates max hp, hp, and stats
      */
     UpdateLevelDependantStats(): void;
+
+    /** @epoch-start */
+    IsMoving(): boolean;
+    SetCombatMovement(allow: boolean): void;
+    /** @epoch-end */
 }
 
 declare interface TSAura extends TSEntityProvider {
@@ -7437,9 +7442,18 @@ declare interface TSUnit extends TSWorldObject {
     AddThreat(victim : TSUnit,threat : float,spell? : uint32,schoolMask? : SpellSchoolMask | uint32, ignoreModifiers?: boolean, ignoreRedirects?: boolean, raw?: boolean) : void
     ScaleThreat(victim: TSUnit, scale: float, raw?: boolean)
 
+    /** @epoch-start */
     GetWeaponDamageRange(attType: uint8, type: uint8, damageIndex: uint8);
     GetTotalAttackPowerValue(attType: uint8);
     SpellBaseDamageBonusDone(schoolMask: uint32);
+    IsWithinMeleeRange(target: TSUnit): boolean;
+    IsTotem(): boolean;
+    IsPet(): boolean;
+    IsHunterPet(): boolean;
+    StopMoving(): void;
+    InterruptNonMeleeSpells(withDelayed: boolean, spellid: uint32, withInstant: boolean);
+    IsNonMeleeSpellCast(withDelayed: boolean, skipChanneled: boolean, skipAutorepeat: boolean, isAutoshoot: boolean, skipInstant: boolean): boolean;
+    /** @epoch-end */
 }
 
 declare interface TSItemTemplate extends TSEntityProvider {

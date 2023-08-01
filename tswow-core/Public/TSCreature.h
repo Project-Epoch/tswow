@@ -145,6 +145,11 @@ public:
 
     TSNumber<float> GetThreat(TSUnit target, bool include_offline = false);
 
+    /** @epoch-start */
+    bool IsMoving();
+    void SetCombatMovement(bool allow);
+    /** @epoch-end */
+
 private:
     TSLua::Array<TSUnit> LGetThreatList();
     friend class TSLua;
