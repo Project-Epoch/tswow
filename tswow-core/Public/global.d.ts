@@ -7720,6 +7720,10 @@ declare interface TSSpellInfo extends TSEntityProvider {
     GetEffect(index: SpellEffIndex): TSSpellEffectInfo
     GetTotem(index: uint32): TSNumber<uint32>
     GetTalentCost(): TSNumber<uint32>
+
+    /** @epoch-start */
+    HasAura(auraType: uint32): boolean
+    /** @epoch-end */
 }
 
 declare class TSSpellEffectInfo {

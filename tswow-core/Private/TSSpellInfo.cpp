@@ -498,3 +498,10 @@ TSNumber<uint32> GetTalentCost(uint32 entry)
 {
     return GetTalentSpellCost(entry);
 }
+
+/** epoch-start */
+bool TSSpellInfo::HasAura(uint32 auraType)
+{
+    return info->HasAura(static_cast<AuraType>(auraType));
+}
+/** epoch-end */
