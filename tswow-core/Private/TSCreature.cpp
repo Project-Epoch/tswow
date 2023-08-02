@@ -1451,4 +1451,9 @@ void TSCreature::SetCombatMovement(bool allow)
         sai->SetCombatMove(allow);
     }
 }
+
+bool TSCreature::CanNotReachTarget()
+{
+    return creature->CanNotReachTarget();
+}
 /** @epoch-end */

@@ -148,6 +148,7 @@ public:
     /** @epoch-start */
     bool IsMoving();
     void SetCombatMovement(bool allow);
+    bool CanNotReachTarget();
     /** @epoch-end */
 
 private:

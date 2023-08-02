@@ -3311,6 +3311,7 @@ declare interface TSCreature extends TSUnit {
     /** @epoch-start */
     IsMoving(): boolean;
     SetCombatMovement(allow: boolean): void;
+    CanNotReachTarget(): boolean;
     /** @epoch-end */
 }
 
