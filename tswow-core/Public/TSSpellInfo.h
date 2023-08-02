@@ -134,6 +134,9 @@ public:
 
     /** epoch-start */
     bool HasAura(uint32 auraType);
+    bool IsPositive();
+    TSNumber<float> GetMinRange(bool positive = false);
+    TSNumber<float> GetMaxRange(bool positive = false);
     /** epoch-end */
 };
 

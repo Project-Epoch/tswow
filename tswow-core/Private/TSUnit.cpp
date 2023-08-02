@@ -2695,4 +2695,9 @@ bool TSUnit::IsNonMeleeSpellCast(bool withDelayed, bool skipChanneled, bool skip
 {
     return unit->IsNonMeleeSpellCast(withDelayed, skipChanneled, skipAutorepeat, isAutoshoot, skipInstant);
 }
+
+bool TSUnit::IsImmuneToSpell(TSSpellInfo spellInfo, TSWorldObject caster, bool requireImmunityPurgesEffectAttribute)
+{
+    return unit->IsImmunedToSpell(spellInfo->info, caster->obj, requireImmunityPurgesEffectAttribute);
+}
 /** @epoch-end */

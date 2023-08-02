@@ -245,6 +245,7 @@ public:
     void StopMoving();
     void InterruptNonMeleeSpells(bool withDelayed, uint32 spellid = 0, bool withInstant = true);
     bool IsNonMeleeSpellCast(bool withDelayed, bool skipChanneled = false, bool skipAutorepeat = false, bool isAutoshoot = false, bool skipInstant = true);
+    bool IsImmuneToSpell(TSSpellInfo spellInfo, TSWorldObject caster, bool requireImmunityPurgesEffectAttribute = false);
     // uint32 SpellDamageBonusTaken(Unit* caster, SpellInfo const* spellProto, uint32 pdamage, DamageEffectType damagetype);
     /** @epoch-end*/
 private:

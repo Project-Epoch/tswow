@@ -7454,6 +7454,7 @@ declare interface TSUnit extends TSWorldObject {
     StopMoving(): void;
     InterruptNonMeleeSpells(withDelayed: boolean, spellid: uint32, withInstant: boolean);
     IsNonMeleeSpellCast(withDelayed: boolean, skipChanneled: boolean, skipAutorepeat: boolean, isAutoshoot: boolean, skipInstant: boolean): boolean;
+    IsImmuneToSpell(spellInfo: TSSpellInfo, caster: TSWorldObject, requireImmunityPurgesEffectAttribute: boolean): boolean;
     /** @epoch-end */
 }
 
@@ -7724,6 +7725,9 @@ declare interface TSSpellInfo extends TSEntityProvider {
 
     /** @epoch-start */
     HasAura(auraType: uint32): boolean
+    IsPositive(): boolean
+    GetMinRange(positive: boolean): TSNumber<float>
+    GetMaxRange(positive: boolean): TSNumber<float>
     /** @epoch-end */
 }
 
