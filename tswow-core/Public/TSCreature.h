@@ -149,6 +149,7 @@ public:
     bool IsMoving();
     void SetCombatMovement(bool allow);
     bool CanNotReachTarget();
+    TSArray<TSUnit> GetThreatListSorted();
     /** @epoch-end */
 
 private:

@@ -3312,6 +3312,7 @@ declare interface TSCreature extends TSUnit {
     IsMoving(): boolean;
     SetCombatMovement(allow: boolean): void;
     CanNotReachTarget(): boolean;
+    GetThreatListSorted(): TSArray<TSUnit>
     /** @epoch-end */
 }
 
@@ -7455,6 +7456,7 @@ declare interface TSUnit extends TSWorldObject {
     InterruptNonMeleeSpells(withDelayed: boolean, spellid: uint32, withInstant: boolean);
     IsNonMeleeSpellCast(withDelayed: boolean, skipChanneled: boolean, skipAutorepeat: boolean, isAutoshoot: boolean, skipInstant: boolean): boolean;
     IsImmuneToSpell(spellInfo: TSSpellInfo, caster: TSWorldObject, requireImmunityPurgesEffectAttribute: boolean): boolean;
+    CanHaveThreatList(): boolean;
     /** @epoch-end */
 }
 

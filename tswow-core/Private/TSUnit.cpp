@@ -2700,4 +2700,9 @@ bool TSUnit::IsImmuneToSpell(TSSpellInfo spellInfo, TSWorldObject caster, bool r
 {
     return unit->IsImmunedToSpell(spellInfo->info, caster->obj, requireImmunityPurgesEffectAttribute);
 }
+
+bool TSUnit::CanHaveThreatList()
+{
+    return unit->CanHaveThreatList();
+}
 /** @epoch-end */

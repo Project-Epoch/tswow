@@ -1456,4 +1456,22 @@ bool TSCreature::CanNotReachTarget()
 {
     return creature->CanNotReachTarget();
 }
+
+/**
+ * Returns all [Unit]s in the [Creature]'s threat list.
+ *
+ * @return table targets
+ */
+TSArray<TSUnit> TSCreature::GetThreatListSorted()
+{
+    TSArray <TSUnit> tbl;
+
+    for (ThreatReference const* ref : creature->GetThreatManager().GetSortedThreatList())
+    {
+        Unit* target = ref->GetVictim();
+        if (target) tbl.push(TSUnit(target));
+    }
+
+    return tbl;
+}
 /** @epoch-end */
