@@ -2705,4 +2705,29 @@ bool TSUnit::CanHaveThreatList()
 {
     return unit->CanHaveThreatList();
 }
+
+bool TSUnit::IsPossessed()
+{
+    return unit->isPossessed();
+}
+
+bool TSUnit::IsPossessedByPlayer()
+{
+    return unit->isPossessedByPlayer();
+}
+
+void TSUnit::StartCooldownExplicit(uint32 spell, uint32 cooldownMs, bool forcePacket)
+{
+    unit->GetSpellHistory()->AddCooldown(spell, 0, std::chrono::milliseconds(cooldownMs));
+
+    if (forcePacket)
+    {
+        if (Player* playerOwner = unit->GetCharmerOrOwnerPlayerOrPlayerItself())
+        {
+            WorldPacket spellCooldown;
+            unit->GetSpellHistory()->BuildCooldownPacket(spellCooldown, SPELL_COOLDOWN_FLAG_NONE, spell, cooldownMs);
+            playerOwner->SendDirectMessage(&spellCooldown);
+        }
+    }
+}
 /** @epoch-end */

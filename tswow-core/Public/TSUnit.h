@@ -247,6 +247,9 @@ public:
     bool IsNonMeleeSpellCast(bool withDelayed, bool skipChanneled = false, bool skipAutorepeat = false, bool isAutoshoot = false, bool skipInstant = true);
     bool IsImmuneToSpell(TSSpellInfo spellInfo, TSWorldObject caster, bool requireImmunityPurgesEffectAttribute = false);
     bool CanHaveThreatList();
+    bool IsPossessed();
+    bool IsPossessedByPlayer();
+    void StartCooldownExplicit(uint32 spell, uint32 cooldownMs, bool forcePacket);
     // uint32 SpellDamageBonusTaken(Unit* caster, SpellInfo const* spellProto, uint32 pdamage, DamageEffectType damagetype);
     /** @epoch-end*/
 private:

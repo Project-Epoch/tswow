@@ -7461,6 +7461,9 @@ declare interface TSUnit extends TSWorldObject {
     IsNonMeleeSpellCast(withDelayed: boolean, skipChanneled: boolean, skipAutorepeat: boolean, isAutoshoot: boolean, skipInstant: boolean): boolean;
     IsImmuneToSpell(spellInfo: TSSpellInfo, caster: TSWorldObject, requireImmunityPurgesEffectAttribute: boolean): boolean;
     CanHaveThreatList(): boolean;
+    IsPossessed(): boolean;
+    IsPossessedByPlayer(): boolean;
+    StartCooldownExplicit(spell: uint32, cooldownMs: uint32, forcePacket: boolean): void;
     /** @epoch-end */
 }
 
@@ -8733,6 +8736,11 @@ declare namespace _hidden {
           , gain: TSMutableNumber<uint32>
           , killer: TSPlayer
         )=>void)
+
+        /** @epoch-start */
+        OnCheckHasSpell(callback: (creature: TSCreature, spell: TSNumber<uint32>, has_spell: TSMutable<bool, bool>) => void)
+        OnCheckHasSpell(id: EventID, callback: (creature: TSCreature, spell: TSNumber<uint32>, has_spell: TSMutable<bool, bool>) => void)
+        /** @epoch-end */
     }
 
     export class Quest<T> {
@@ -8892,6 +8900,11 @@ declare namespace _hidden {
         OnEnterCombatWith(callback: (me: TSUnit, other: TSUnit)=>void);
         OnExitCombatWith(callback: (me: TSUnit, other: TSUnit)=>void);
         OnSetTarget(callback: (me: TSUnit, selection: uint64, oldSelection: uint64)=>void)
+
+        /** @epoch-start */
+        OnInitPossessCreateSpells(callback: (me: TSUnit, index: TSNumber<uint8>, spell_id: TSMutableNumber<uint32>) => void);
+        OnInitCharmCreateSpells(callback: (me: TSUnit, index: TSNumber<uint8>, spell_id: TSMutableNumber<uint32>) => void);
+        /** @epoch-end */
     }
 
     export class Battleground<T> {
