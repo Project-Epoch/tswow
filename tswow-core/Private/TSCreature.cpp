@@ -1474,4 +1474,19 @@ TSArray<TSUnit> TSCreature::GetThreatListSorted()
 
     return tbl;
 }
+
+void TSCreature::SetEncounterPhase(uint8 phase)
+{
+    this->SetUInt("internal-creature-encounter-phase", phase);
+}
+
+void TSCreature::ResetEncounterPhase()
+{
+    this->SetEncounterPhase(0);
+}
+
+TSNumber<uint8> TSCreature::GetEncounterPhase()
+{
+    return this->GetUInt("internal-creature-encounter-phase", 0);
+}
 /** @epoch-end */

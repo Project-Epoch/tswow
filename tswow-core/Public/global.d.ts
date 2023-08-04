@@ -3317,6 +3317,9 @@ declare interface TSCreature extends TSUnit {
     SetCombatMovement(allow: boolean): void;
     CanNotReachTarget(): boolean;
     GetThreatListSorted(): TSArray<TSUnit>
+    ResetEncounterPhase(): void;
+    GetEncounterPhase(): TSNumber<uint8>;
+    SetEncounterPhase(phase: uint8): void;
     /** @epoch-end */
 }
 
