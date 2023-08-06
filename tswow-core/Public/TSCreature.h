@@ -150,8 +150,8 @@ public:
     void SetCombatMovement(bool allow);
     bool CanNotReachTarget();
     TSArray<TSUnit> GetThreatListSorted();
-    TSNumber<uint8> GetEncounterPhase();
-    void SetEncounterPhase(uint8 phase);
+    TSNumber<uint16> GetEncounterPhase();
+    void SetEncounterPhase(uint16 phase);
     void ResetEncounterPhase();
     /** @epoch-end */
 

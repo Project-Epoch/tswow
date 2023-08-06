@@ -3318,8 +3318,8 @@ declare interface TSCreature extends TSUnit {
     CanNotReachTarget(): boolean;
     GetThreatListSorted(): TSArray<TSUnit>
     ResetEncounterPhase(): void;
-    GetEncounterPhase(): TSNumber<uint8>;
-    SetEncounterPhase(phase: uint8): void;
+    GetEncounterPhase(): TSNumber<uint16>;
+    SetEncounterPhase(phase: uint16): void;
     /** @epoch-end */
 }
 
