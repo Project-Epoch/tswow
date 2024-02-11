@@ -221,9 +221,11 @@ class TC_GAME_API TSMutableWorldObject
 class TC_GAME_API TSWorldObjectCollection
 {
     TS_CLASS_DECLARATION(TSWorldObjectCollection, std::list<WorldObject*>, m_info)
-    void filterInPlace(std::function<bool(TSWorldObject)> callback);
-    void forEach(std::function<void(TSWorldObject)> callback);
-    TSWorldObject find(std::function<bool(TSWorldObject)> callback);
+    // @epoch-start
+    void filterInPlace(std::function<bool(TSWorldObject, size_t)> callback);
+    void forEach(std::function<void(TSWorldObject, size_t)> callback);
+    TSWorldObject find(std::function<bool(TSWorldObject, size_t)> callback);
+    // @epoch-end
     TSNumber<uint32> get_length();
     TSWorldObject get(uint32 index);
 };

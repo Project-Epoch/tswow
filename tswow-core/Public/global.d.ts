@@ -5761,9 +5761,11 @@ declare interface TSWorldObject extends TSObject, TSWorldEntityProvider<TSWorldO
 }
 
 declare interface TSWorldObjectCollection {
-    filterInPlace(callback: (obj: TSWorldObject)=>bool): void
-    forEach(callback: (obj: TSWorldObject)=>void) :void
-    find(callback: (obj: TSWorldObject)=>bool): TSWorldObject
+    // @epoch-start
+    filterInPlace(callback: (obj: TSWorldObject, index: uint16)=>bool): void
+    forEach(callback: (obj: TSWorldObject, index: uint16)=>void) :void
+    find(callback: (obj: TSWorldObject, index: uint16) => bool): TSWorldObject
+    // @epoch-end
     length: TSNumber<uint32>
     /**
      * @warn This is an O(n) operation, because the backing type is an std::list

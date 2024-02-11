@@ -1299,21 +1299,25 @@ void TSMutableWorldObject::set(TSWorldObject value)
 
 TS_CLASS_DEFINITION(TSWorldObjectCollection, std::list<WorldObject*>, m_info)
 
-void TSWorldObjectCollection::filterInPlace(std::function<bool(TSWorldObject)> callback)
+// @epoch-start
+void TSWorldObjectCollection::filterInPlace(std::function<bool(TSWorldObject, size_t)> callback)
 {
     auto itr = m_info->begin();
+    size_t index = 0;
     while (itr != m_info->end())
     {
-        if (!callback(TSWorldObject(*itr)))
+        if (!callback(TSWorldObject(*itr), index))
         {
             itr = m_info->erase(itr);
         }
         else
         {
+            ++index;
             itr++;
         }
     }
 }
+// @epoch-end
 
 TSNumber<uint32> TSWorldObjectCollection::get_length()
 {
@@ -1327,25 +1331,33 @@ TSWorldObject TSWorldObjectCollection::get(uint32 index)
     return TSWorldObject(*front);
 }
 
-void TSWorldObjectCollection::forEach(std::function<void(TSWorldObject)> callback)
+// @epoch-start
+void TSWorldObjectCollection::forEach(std::function<void(TSWorldObject, size_t)> callback)
 {
+    size_t index = 0;
+
     for (WorldObject* obj : *m_info)
     {
-        callback(TSWorldObject(obj));
+        callback(TSWorldObject(obj), index);
+        ++index;
     }
 }
 
-TSWorldObject TSWorldObjectCollection::find(std::function<bool(TSWorldObject)> callback)
+TSWorldObject TSWorldObjectCollection::find(std::function<bool(TSWorldObject, size_t)> callback)
 {
+    size_t index = 0;
+
     for (WorldObject* obj : *m_info)
     {
-        if (callback(obj))
+        if (callback(obj, index))
         {
             return TSWorldObject(obj);
+                ++index;
         }
     }
     return TSWorldObject(nullptr);
 }
+// @epoch-end
 
 
 TSFactionTemplate TSWorldObject::GetFactionTemplate()
