@@ -8045,7 +8045,7 @@ declare namespace _hidden {
         OnGenerateItemLoot(callback: (player: TSPlayer, item: TSItem, loot: TSLoot, type: uint32)=>void);
         OnLootCorpse(callback: (player: TSPlayer, corpse: TSCorpse)=>void);
         OnTradeCompleted(callback: (me: TSPlayer, him: TSPlayer, myItems: TSArray<TSItem>, hisItems: TSArray<TSItem>, myGold: uint32, hisGold: uint32) => void);
-        OnIsPvPArea(callback: (player: TSPlayer, enablepvp: TSMutable<boolean, boolean>) => void);
+        OnCheckAreaIsPvP(callback: (player: TSPlayer, forcepvp: TSMutable<boolean, boolean>) => void);
 
         OnUpdateDodgePercentage(callback: (
               player: TSPlayer

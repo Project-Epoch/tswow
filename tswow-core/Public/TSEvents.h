@@ -192,7 +192,7 @@ struct TSEvents
 
          EVENT(OnCastPetTalentAuras, TSPlayer, TSCreature)
 
-         EVENT(OnIsPvPArea, TSPlayer, TSMutable<bool,bool>)
+         EVENT(OnCheckAreaIsPvP, TSPlayer, TSMutable<bool,bool>)
 
          EVENT(
              OnTradeCompleted
