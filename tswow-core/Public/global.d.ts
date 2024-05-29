@@ -9526,6 +9526,15 @@ declare namespace _hidden {
 
         OnGameObjectCreate(callback: (instance: TSInstance, go: TSGameObject) => void): T
         OnGameObjectCreate(id: EventID, callback: (instance: TSInstance, go: TSGameObject) => void): T
+
+        OnWriteSaveDataMore(callback: (instance: TSInstance, data: TSMutable<TSArray<uint32>, TSArray<uint32>>) => void): T
+        OnWriteSaveDataMore(id: EventID, callback: (instance: TSInstance, data: TSMutable<TSArray<uint32>, TSArray<uint32>>) => void): T
+
+        OnBeforeReadSaveDataMore(callback: (instance: TSInstance, length: TSMutable<uint8, uint8>) => void): T
+        OnBeforeReadSaveDataMore(id: EventID, callback: (instance: TSInstance, length: TSMutable<uint8, uint8>) => void): T
+
+        OnReadSaveDataMore(callback: (instance: TSInstance, data: TSArray<uint32>) => void): T
+        OnReadSaveDataMore(id: EventID, callback: (instance: TSInstance, data: TSArray<uint32>) => void): T
     }
 
     export class AuctionHouse<T> {

@@ -861,6 +861,9 @@ struct TSEvents
         ID_EVENT(OnLoadObjectData, TSInstance)
         ID_EVENT(OnCreatureCreate, TSInstance, TSCreature)
         ID_EVENT(OnGameObjectCreate, TSInstance, TSGameObject)
+        ID_EVENT(OnWriteSaveDataMore, TSInstance, TSMutable<TSArray<uint32>, TSArray<uint32>>)
+        ID_EVENT(OnBeforeReadSaveDataMore, TSInstance, TSMutable<uint8, uint8>)
+        ID_EVENT(OnReadSaveDataMore, TSInstance, TSArray<uint32>)
     } Instance;
 
      struct ItemEvents : public TSMappedEventsRegistry

@@ -381,6 +381,9 @@ void TSLua::load_events(sol::state& state)
     LUA_MAPPED_HANDLE(instance_events, InstanceEvents, OnLoadObjectData);
     LUA_MAPPED_HANDLE(instance_events, InstanceEvents, OnCreatureCreate);
     LUA_MAPPED_HANDLE(instance_events, InstanceEvents, OnGameObjectCreate);
+    LUA_MAPPED_HANDLE(instance_events, InstanceEvents, OnWriteSaveDataMore);
+    LUA_MAPPED_HANDLE(instance_events, InstanceEvents, OnBeforeReadSaveDataMore);
+    LUA_MAPPED_HANDLE(instance_events, InstanceEvents, OnReadSaveDataMore);
 
     auto item_events = state.new_usertype<TSEvents::ItemEvents>("ItemEvents");
     LUA_MAPPED_HANDLE(item_events, ItemEvents, OnUse);
