@@ -859,6 +859,8 @@ struct TSEvents
         ID_EVENT(OnLoadMinionData, TSInstance)
         ID_EVENT(OnLoadDoorData, TSInstance)
         ID_EVENT(OnLoadObjectData, TSInstance)
+        ID_EVENT(OnCreatureCreate, TSInstance, TSCreature)
+        ID_EVENT(OnGameObjectCreate, TSInstance, TSGameObject)
     } Instance;
 
      struct ItemEvents : public TSMappedEventsRegistry

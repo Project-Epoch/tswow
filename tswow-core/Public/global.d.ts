@@ -4221,6 +4221,13 @@ declare interface TSMap extends TSEntityProvider, TSWorldEntityProvider<TSMap> {
      * @param float grade : the intensity/grade of the [Weather], ranges from 0 to 1
      */
     SetWeather(zoneId : uint32,weatherType : WeatherType,grade : float) : void
+
+    /**
+     * Ensure grid is unloaded at position.
+     * @param x 
+     * @param y 
+     */
+    LoadGrid(x: float, y: float): void;
 }
 
 declare class TSItemEntry
@@ -9513,6 +9520,12 @@ declare namespace _hidden {
 
         OnLoadObjectData(callback: (instance: TSInstance)=>void): T
         OnLoadObjectData(id: EventID, callback: (instance: TSInstance)=>void): T
+
+        OnCreatureCreate(callback: (instance: TSInstance, creature: TSCreature) => void): T
+        OnCreatureCreate(id: EventID, callback: (instance: TSInstance, creature: TSCreature) => void): T
+
+        OnGameObjectCreate(callback: (instance: TSInstance, go: TSGameObject) => void): T
+        OnGameObjectCreate(id: EventID, callback: (instance: TSInstance, go: TSGameObject) => void): T
     }
 
     export class AuctionHouse<T> {
