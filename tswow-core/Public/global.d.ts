@@ -9535,6 +9535,12 @@ declare namespace _hidden {
 
         OnReadSaveDataMore(callback: (instance: TSInstance, data: TSArray<uint32>) => void): T
         OnReadSaveDataMore(id: EventID, callback: (instance: TSInstance, data: TSArray<uint32>) => void): T
+
+        OnDataSet(callback: (instance: TSInstance, type: uint32, data: uint32) => void): T
+        OnDataSet(id: EventID, callback: (instance: TSInstance, type: uint32, data: uint32) => void): T
+
+        OnDataGet(callback: (instance: TSInstance, type: uint32, result: TSMutableNumber<uint32>) => void): T
+        OnDataGet(id: EventID, callback: (instance: TSInstance, type: uint32, result: TSMutableNumber<uint32>) => void): T
     }
 
     export class AuctionHouse<T> {
