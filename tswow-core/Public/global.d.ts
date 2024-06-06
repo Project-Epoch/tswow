@@ -3321,6 +3321,7 @@ declare interface TSCreature extends TSUnit {
     GetEncounterPhase(): TSNumber<uint16>;
     SetEncounterPhase(phase: uint16): void;
     SetInterruptImmune(apply: boolean): void;
+    Talk(id: uint8, target?: TSUnit)
     /** @epoch-end */
 }
 
@@ -5768,6 +5769,7 @@ declare interface TSWorldObject extends TSObject, TSWorldEntityProvider<TSWorldO
 
     /** @epoch-start */
     GetMapHeight(x: TSNumber<float>, y: TSNumber<float>, z: TSNumber<float>): TSNumber<float>
+    GetRandomPoint(x: float, y: float, z: float, distance: float): TSPosition
     /** @epoch-end */
 }
 
