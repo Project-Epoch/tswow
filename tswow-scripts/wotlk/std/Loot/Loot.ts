@@ -34,6 +34,7 @@ export interface LootRowBase {
     MaxCount: SQLCell<number,any>;
     clone(id: number, item: number): any;
     Table: string;
+    delete(): void;
 }
 
 export interface LootTable {
