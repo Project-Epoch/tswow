@@ -79,7 +79,7 @@ public:
     TSNumber<uint64> GetInstanceData64(uint32 id);
     void SetInstanceData64(uint32 id, uint64 data);
     TSGUID GetInstanceGUIDData(uint32 id);
-    void SetInstanceGuidData(uint32 id, TSGUID data);
+    void SetInstanceGUIDData(uint32 id, TSGUID data);
 };
 
 LUA_PTR_TYPE(TSGUIDSet)
